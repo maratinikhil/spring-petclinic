@@ -12,7 +12,7 @@ pipeline {
         }
         stage ('build & scan') {
             steps {
-              withSonarQubeEnv('sonar_id') {
+              withSonarQubeEnv('Sonar') {
                 sh "mvn package sonar:sonar"
               }
             }
