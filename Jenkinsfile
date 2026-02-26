@@ -25,8 +25,6 @@ pipeline {
                 } 
             }
         }
-}
-
 post {
     always {
         archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
@@ -38,4 +36,5 @@ post {
     failure {
         echo 'pipeline failed. check the logs for details'
     }
+}
 }
