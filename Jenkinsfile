@@ -19,7 +19,7 @@ pipeline {
                               -Dsonar.organization=maratinikhil \
                               -Dsonar.host.url=https://sonarcloud.io/ \
                               -Dsonar.login=$SONAR_TOKEN 
-                        """
+                           """
                     }
                     }
                 } 
