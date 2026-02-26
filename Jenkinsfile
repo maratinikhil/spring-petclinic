@@ -13,7 +13,7 @@ pipeline {
             stage ('build & scan') {
                 steps {
                     withCredentials([string(credentialsId: 'sonar_id', variable: 'SONAR_TOKEN')]){
-                    withSonarQubeEnv('SONAR'){
+                    withSonarQubeEnv('sonar_id'){
                         sh """mvn package sonar:sonar \
                               -Dsonar.projectkey=maratinikhil_spring-petclinic \
                               -Dsonar.organization=maratinikhil \
