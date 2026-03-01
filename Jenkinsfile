@@ -24,6 +24,23 @@ pipeline {
                     }
                 } 
             }
+            stage ('Artifactory - Jfrog'){
+                steps {
+                    rtUpload (
+                        serverId: 'Jfrog',
+                        spec: '''{
+                            "files": [
+                                {
+                                "pattern": "target/*.jar",
+                                "target": "spcjava-spc"
+                                }
+                            ]
+                        }''',
+                    )
+                     rtPublishBuildInfo(serverId: 'Jfrog')    
+                }
+
+            }
         }
 post {
     always {
