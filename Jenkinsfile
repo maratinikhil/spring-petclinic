@@ -3,6 +3,9 @@ pipeline {
     triggers {
         pollSCM('* * * * *')
     }
+    parameters {
+        choice(name: 'CHOICE', choices: ['package', 'clean install', 'verify'], description: 'Pick something')
+    }
         stages {
             stage ('git checkout') {
                 steps {
@@ -14,7 +17,7 @@ pipeline {
                 steps {
                     withCredentials([string(credentialsId: 'sonar_id', variable: 'SONAR_TOKEN')]){
                     withSonarQubeEnv('SONAR'){
-                        sh """mvn package sonar:sonar \
+                        sh """mvn package ${params.CHOICE}sonar:sonar \
                             -Dsonar.projectKey=maratinikhil_spring-petclinic \
                             -Dsonar.organization=maratinikhil \
                             -Dsonar.host.url=https://sonarcloud.io/ \
