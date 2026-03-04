@@ -4,7 +4,7 @@ pipeline {
         pollSCM('* * * * *')
     }
     parameters {
-        choice(name: 'CHOICE', choices: ['package', 'clean install', 'verify'], description: 'Pick something')
+        choice(name: 'CHOICE', choices: ['package', 'clean install', 'verify'], description: 'Select Maven goal')
     }
         stages {
             stage ('git checkout') {
