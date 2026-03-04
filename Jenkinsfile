@@ -26,13 +26,13 @@ pipeline {
             }
             stage ('Artifactory - Jfrog'){
                 steps {
-                    rtUpload (
+                    rtUpload (  
                         serverId: 'Jfrog',
                         spec: '''{
                             "files": [
                                 {
                                 "pattern": "target/*.jar",
-                                "target": "spcjava-spc"
+                                "target": "spcjava-spc/"
                                 }
                             ]
                         }''',
