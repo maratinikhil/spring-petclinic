@@ -10,5 +10,19 @@ pipeline {
                     branch: 'main'
             }
         }
+        stage ("build & scan") {
+            steps {
+                withCredentialsID([string(credentialsId:'Sonarcloud_id', variable: 'SONAR_TOKEN')])
+                withSonarQubeEnv('SONAR'){
+                    sh '''mvn package sonar:sonar \
+                        -Dsonar.projectKey=maratinikhil_spring-petclinic \
+                        -Dsonar.organization=maratinikhil \
+                        -Dsonar.host.url=https://sonarcloud.io/ \
+                        -Dsonar.login=$SONAR_TOKEN
+                    '''
+                }
+            }
+        }
     }
+
 }
