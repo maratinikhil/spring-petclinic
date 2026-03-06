@@ -1,13 +1,13 @@
 pipeline {
-    agent {label "SPC"}
+    agent {label 'SPC'}
     triggers {
-        pollSCM("* * * * *")
+        pollSCM('* * * * *')
     }
     stages {
         stage ("git checkout"){
             steps {
-                git url: "https://github.com/maratinikhil/spring-petclinic.git"
-                    branch: "main"
+                git url: 'https://github.com/maratinikhil/spring-petclinic.git'
+                    branch: 'main'
             }
         }
     }
