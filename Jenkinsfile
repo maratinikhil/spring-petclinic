@@ -29,7 +29,7 @@ pipeline {
         always {
             archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
             archiveArtifacts artifacts: 'target/surefire-reports/*.xml'
-            junit: '**/target/surefire-reports/*.xml'
+            junit '**/target/surefire-reports/*.xml'
         }
         success {
             echo "pipeline executed successfully"
