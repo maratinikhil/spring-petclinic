@@ -25,17 +25,19 @@ pipeline {
             }
         }
         stage ("Jfrog") {
-            rtUpload (
-                serverId: 'JFROG',
-                spec: '''{
-                    "files": [
-                        {
-                        "pattern": "target"/*.jar
-                        "target": "spc-spc"
-                        }
-                    ]
-                }''',
-            )
+            steps {
+                rtUpload (
+                    serverId: 'JFROG',
+                    spec: '''{
+                        "files": [
+                            {
+                            "pattern": "target"/*.jar
+                            "target": "spc-spc"
+                            }
+                        ]
+                    }''',
+                )
+            }
             rtPublishBuildInfo(serverId: 'JFROG')    
 
         }
