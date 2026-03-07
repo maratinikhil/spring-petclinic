@@ -31,7 +31,7 @@ pipeline {
                     spec: '''{
                         "files": [
                             {
-                            "pattern": "target"/*.jar",
+                            "pattern": "target/*.jar",
                             "target": "spc-spc"
                             }
                         ]
