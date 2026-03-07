@@ -37,8 +37,8 @@ pipeline {
                         ]
                     }''',
                 )
+                rtPublishBuildInfo(serverId: 'JFROG')    
             }
-            rtPublishBuildInfo(serverId: 'JFROG')    
 
         }
     }
